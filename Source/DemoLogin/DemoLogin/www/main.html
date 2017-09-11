@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/system2.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f6f6f6;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 48px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #f1f1f1;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+    <div id="mySidenav" class="sidenav">
+        <a style="font-weight:initial;text-shadow:none !important" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow ui-corner-all">Home</button>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all">Hạ vỏ</button>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all">Nâng vỏ</button>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all">Nâng hàng</button>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all">Vỏ xuất tàu</button>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all">Hàng xuất tàu</button>
+        <button style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;" class="ui-btn ui-icon-power ui-btn-icon-left ui-shadow ui-corner-all">Log out</button>
+        <a style="border-radius: inherit; background: #337ab7; color: #fff; text-shadow: none; font-weight: 300;font-size:16px;" class="ui-btn ui-icon-info ui-btn-icon-left ui-shadow ui-corner-all" href="gioithieu.html" data-transition="pop">Giới thiệu</a>
+
+
+    </div>
+
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <!-- Màn hình nhập thông tin Cont Hạ vỏ : START -->
+        <div class="row">
+            <div class="col-md-12">
+                <div data-role="page1">
+                    <div style="border-radius: inherit;" class="panel  panel-primary">
+                        <div style="border-radius: inherit;text-shadow:none" class="panel-heading"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Nhập thông tin cho phần hạ vỏ</div>
+                        <div class="panel-body">
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Cont</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="select-owner" class="select">Owner:</label>
+                                <select name="select-owner" id="select-owner" data-native-menu="false">
+                                    <option>Select Owner</option>
+                                    <option value="standard">Owner 1</option>
+                                    <option value="rush">Owner 2</option>
+                                    <option value="express">Owner 3</option>
+                                    <option value="overnight">Owner 4</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="select-size" class="select">Size</label>
+                                <select name="select-size" id="select-size" data-native-menu="false">
+                                    <option>Select Size</option>
+                                    <option value="standard">Size 1</option>
+                                    <option value="rush">Size 2</option>
+                                    <option value="express">Size 3</option>
+                                    <option value="overnight">Size 4</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="select-type" class="select">Type</label>
+                                <select name="select-type" id="select-type" data-native-menu="false">
+                                    <option>Select Type</option>
+                                    <option value="standard">Type 1</option>
+                                    <option value="rush">Type 2</option>
+                                    <option value="express">Type 3</option>
+                                    <option value="overnight">Type 4</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Payload</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Age</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Truck No</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Driver Phone</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Driver Name</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <label for="text-basic">Company</label>
+                                <input type="text" name="text-basic" id="text-basic" value="">
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <button style="background:#efac23;color: #fff;text-shadow: none;" class="ui-btn ui-icon-back ui-btn-icon-left">Back</button>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <button style="background: #228e24;color: #fff;text-shadow: none;" class="ui-btn ui-icon-check ui-btn-icon-left">Submit</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Màn hình nhập thông tin Cont Hạ vỏ : END -->
+        <!-- màn hình nhập chụp ảnh thông tin Count Hạ vỏ:START -->
+        <div class="row">
+            <div class="col-md-12">
+                <div style="border-radius: inherit;" class="panel  panel-primary">
+                    <div style="border-radius: inherit;text-shadow:none" class="panel-heading "><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Nhập ảnh cho phần hạ vỏ</div>
+                    <div class="panel-body">
+                        <div data-role="tabs" id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+                            <div data-role="navbar" class="ui-navbar" role="navigation">
+                                <ul style="overflow:hidden !important;border-radius:inherit !important" class="ui-grid-b ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+
+                                    <li style="clear:none;width:auto;" class="ui-block-a ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="one" aria-labelledby="ui-id-1" aria-selected="true"><a href="#one" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Cửa</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-2" aria-selected="false"><a style="border-top-width:1px;" href="#two" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Trái</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-3" aria-selected="false"><a style="border-top-width:1px;" href="#d" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Trước</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-4" aria-selected="false"><a style="border-top-width:1px;" href="#f" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Phải</a></li>
+                                    <li style="clear:none;width:auto" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-5" aria-selected="false"><a style="border-top-width:1px;" href="#d" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-5"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Trong</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-6" aria-selected="false"><a style="border-top-width:1px;" href="#fdsf" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-6"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Nóc</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-7" aria-selected="false"><a style="border-top-width:1px;" href="#seven" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-7"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Phụ phí</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-8" aria-selected="false"><a style="border-top-width:1px;" href="#hienthi" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-8"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Hiển thị</a></li>
+                                    <li style="clear:none;width:auto;" class="ui-block-b ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="two" aria-labelledby="ui-id-9" aria-selected="false"><a style="border-top-width:1px;" href="#ff" data-ajax="false" class="ui-link ui-btn ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-9"><span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Trở về</a></li>
+                                </ul>
+                            </div>
+                            <div style="border: 1px solid #ddd;" id="one" class="ui-body-d ui-content ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-1" role="tabpanel" aria-expanded="true" aria-hidden="false">
+                                <!-- vùng ảnh chụp vỏ công bình thường-start -->
+                                <div class="col-md-12 col-xs-12 col-sm-12 ">
+                                    <div style="border-radius: inherit;" class="panel  panel-primary">
+                                        <div style="border-radius: inherit;text-shadow:none" class="panel-heading "><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Vùng ảnh chụp vỏ công </div>
+                                        <div class="panel-body">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="https://4.bp.blogspot.com/-pSeXyDp8_4s/VtGpPPtf0HI/AAAAAAABQi0/lnJ73RzlCu4/s1600/gai-xinh-3.jpg" alt="Paris, France" style="width:150px;height:150px;"></a>
+                                                <a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="http://facebook.vnseosem.com/wp-content/uploads/2016/08/hinh-girl-xinh-facebook-DJ-Ny-Saki-2-1.jpg" alt="Sydney, Australia" style="width:150px;height:150px;"></a>
+                                                <a href="#popupNYC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="https://1.bp.blogspot.com/-HZaE3jqlalI/VtGpLlpnsPI/AAAAAAABQik/9SEyPjo0J5A/s1600/gai-xinh-11.jpg" alt="New York, USA" style="width:150px;height:150px;"></a>
+                                                <div data-role="popup" id="popupParis" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="https://4.bp.blogspot.com/-pSeXyDp8_4s/VtGpPPtf0HI/AAAAAAABQi0/lnJ73RzlCu4/s1600/gai-xinh-3.jpg" style="max-height:512px;" alt="Paris, France">
+                                                </div>
+                                                <div data-role="popup" id="popupSydney" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="http://facebook.vnseosem.com/wp-content/uploads/2016/08/hinh-girl-xinh-facebook-DJ-Ny-Saki-2-1.jpg" style="max-height:512px;" alt="Sydney, Australia">
+                                                </div>
+                                                <div data-role="popup" id="popupNYC" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="https://1.bp.blogspot.com/-HZaE3jqlalI/VtGpLlpnsPI/AAAAAAABQik/9SEyPjo0J5A/s1600/gai-xinh-11.jpg" style="max-height:512px;" alt="New York, USA">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- vùng ảnh chụp vỏ công bình thường-end -->
+                                <!-- vùng ảnh chụp vỏ công thêm hư hỏng-start -->
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div style="border-radius: inherit;border:1px solid  #d46661;" class="panel  panel-primary">
+                                        <div style="border-radius: inherit;text-shadow:none;background-color: #d46661;border-bottom:1px solid #d46661" class="panel-heading "><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Vùng ảnh chụp vỏ công bị hư hỏng </div>
+                                        <div class="panel-body">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <a href="#popupParis1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="http://4.bp.blogspot.com/-onVft2Dyl7E/VhgzcWZ99BI/AAAAAAAAI20/2NwCwHrZDoo/s1600/hinh-anh-girl-xinh-khoe-hang%2B%25288%2529.jpg" alt="Paris, France" style="width:150px;height:150px;"></a>
+                                                <a href="#popupSydney1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="http://cravimax.com/UserFiles/gai-hu-gia-danh-tri-thuc(1).jpg" alt="Sydney, Australia" style="width:150px;height:150px;"></a>
+                                                <a href="#popupNYC1" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="http://diendanthammy.net/attachments/nhung-bo-nguc-tu-nhien-dep-nhat-viet-nam-1-jpg.10578/" alt="New York, USA" style="width:150px;height:150px;"></a>
+                                                <div data-role="popup" id="popupParis1" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="http://4.bp.blogspot.com/-onVft2Dyl7E/VhgzcWZ99BI/AAAAAAAAI20/2NwCwHrZDoo/s1600/hinh-anh-girl-xinh-khoe-hang%2B%25288%2529.jpg" style="max-height:512px;" alt="Paris, France">
+                                                </div>
+                                                <div data-role="popup" id="popupSydney1" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="http://cravimax.com/UserFiles/gai-hu-gia-danh-tri-thuc(1).jpg" style="max-height:512px;" alt="Sydney, Australia">
+                                                </div>
+                                                <div data-role="popup" id="popupNYC1" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="http://diendanthammy.net/attachments/nhung-bo-nguc-tu-nhien-dep-nhat-viet-nam-1-jpg.10578/" style="max-height:512px;" alt="New York, USA">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- vùng ảnh chụp vỏ công thêm hư hỏng-end -->
+                                <div class="col-md-3">
+                                    <button style="border-radius:inherit;background: #337ab7; color: #fff; text-shadow: none;" class="ui-btn ui-icon-camera ui-btn-icon-left ui-shadow ui-corner-all">Thêm ảnh</button>
+                                    <button style="border-radius:inherit;background: #d46661; color: #fff; text-shadow: none;" class="ui-btn ui-icon-alert ui-btn-icon-left ui-shadow ui-corner-all">Thêm hư hỏng</button>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <form>
+                                        <label for="flip-1" id="flip-1-label">Giám định lại:</label>
+                                        <select id="flip-1" name="flip-1" data-role="slider" tabindex="-1" class="ui-slider-switch">
+                                            <option value="off">No</option>
+                                            <option value="on">Yes</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="col-md-2">
+                                    <form>
+                                        <label for="flip-1" id="flip-1-label">Chụp lại:</label>
+                                        <select id="flip-1" name="flip-1" data-role="slider" tabindex="-1" class="ui-slider-switch">
+                                            <option value="off">No</option>
+                                            <option value="on">Yes</option>
+                                        </select>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div style="border: 1px solid #ddd;display: table;width:100%;padding: 10px; box-sizing: border-box;" id="two" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true">
+                                <div class="col-md-3">
+                                    <button style="border-radius:inherit" class="ui-btn ui-icon-camera ui-btn-icon-left ui-shadow ui-corner-all">Thêm ảnh</button>
+                                    <button style="border-radius:inherit" class="ui-btn ui-icon-alert ui-btn-icon-left ui-shadow ui-corner-all">Thêm hư hỏng</button>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <form>
+                                        <label for="flip-1" id="flip-1-label">Giám định lại:</label>
+                                        <select id="flip-1" name="flip-1" data-role="slider" tabindex="-1" class="ui-slider-switch">
+                                            <option value="off">No</option>
+                                            <option value="on">Yes</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="col-md-2">
+                                    <form>
+                                        <label for="flip-1" id="flip-1-label">Chụp lại:</label>
+                                        <select id="flip-1" name="flip-1" data-role="slider" tabindex="-1" class="ui-slider-switch">
+                                            <option value="off">No</option>
+                                            <option value="on">Yes</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <div style="border: 1px solid #ddd;display: table;width:100%;padding: 10px; box-sizing: border-box;" id="seven" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true">
+                                <div class="col-md-12">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <button style="border-radius:inherit;background: #31708f; color: #fff; text-shadow: none;" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all">Thêm phụ phí</button>
+                                    </div>
+
+
+
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label for="select-size" class="select">Loại phí</label>
+                                        <select name="select-size" id="select-size" data-native-menu="false">
+                                            <option>Chọn loại phí</option>
+                                            <option value="standard">Size 1</option>
+                                            <option value="rush">Size 2</option>
+                                            <option value="express">Size 3</option>
+                                            <option value="overnight">Size 4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <label for="select-type" class="select">Số lượng</label>
+                                        <select name="select-type" id="select-type" data-native-menu="false">
+                                            <option>Chọn số lượng</option>
+                                            <option value="standard">1</option>
+                                            <option value="rush">2</option>
+                                            <option value="express">3</option>
+                                            <option value="overnight">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <label for="text-basic">Ghi chú</label>
+                                        <input type="text" name="text-basic" id="text-basic" value="">
+                                    </div>
+                                    <div class=" col-xs-12 col-sm-12 col-md-12">
+                                        <div style="border-radius: inherit;" class="panel  panel-primary">
+                                            <div style="border-radius: inherit;text-shadow:none" class="panel-heading "><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Vùng ảnh chụp công cho mục đích phụ phí </div>
+                                            <div class="panel-body">
+                                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <a href="#popupParis" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="https://4.bp.blogspot.com/-pSeXyDp8_4s/VtGpPPtf0HI/AAAAAAABQi0/lnJ73RzlCu4/s1600/gai-xinh-3.jpg" alt="Paris, France" style="width:150px;height:150px;"></a>
+                                                    <a href="#popupSydney" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="http://facebook.vnseosem.com/wp-content/uploads/2016/08/hinh-girl-xinh-facebook-DJ-Ny-Saki-2-1.jpg" alt="Sydney, Australia" style="width:150px;height:150px;"></a>
+                                                    <a href="#popupNYC" data-rel="popup" data-position-to="window" data-transition="fade"><img class="popphoto" src="https://1.bp.blogspot.com/-HZaE3jqlalI/VtGpLlpnsPI/AAAAAAABQik/9SEyPjo0J5A/s1600/gai-xinh-11.jpg" alt="New York, USA" style="width:150px;height:150px;"></a>
+                                                    <div data-role="popup" id="popupParis" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="https://4.bp.blogspot.com/-pSeXyDp8_4s/VtGpPPtf0HI/AAAAAAABQi0/lnJ73RzlCu4/s1600/gai-xinh-3.jpg" style="max-height:512px;" alt="Paris, France">
+                                                    </div>
+                                                    <div data-role="popup" id="popupSydney" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="http://facebook.vnseosem.com/wp-content/uploads/2016/08/hinh-girl-xinh-facebook-DJ-Ny-Saki-2-1.jpg" style="max-height:512px;" alt="Sydney, Australia">
+                                                    </div>
+                                                    <div data-role="popup" id="popupNYC" data-overlay-theme="b" data-theme="b" data-corners="false">
+                                                        <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img class="popphoto" src="https://1.bp.blogspot.com/-HZaE3jqlalI/VtGpLlpnsPI/AAAAAAABQik/9SEyPjo0J5A/s1600/gai-xinh-11.jpg" style="max-height:512px;" alt="New York, USA">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <button style="background: #efac23;color: #fff;text-shadow: none;" class="ui-btn ui-icon-back ui-btn-icon-left">Trở về</button>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <button style="background: #31708f;color: #fff;text-shadow: none;" class="ui-btn ui-icon-camera ui-btn-icon-left">Thêm ảnh</button>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <button style="background: #228e24;color: #fff;text-shadow: none;" class="ui-btn ui-icon-check ui-btn-icon-left">Lưu lại</button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div style="border: 1px solid #ddd;display: table;width:100%;padding: 10px; box-sizing: border-box;" id="hienthi" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true">
+
+
+                                <div class=" col-xs-12 col-sm-12 col-md-12">
+                                    <div style="border-radius: inherit;" class="panel  panel-primary">
+                                        <div style="border-radius: inherit;text-shadow:none" class="panel-heading "><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Đây là thông tin đầy đủ bạn vừa nhập</div>
+                                        <div class="panel-body">
+
+
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <label for="select-owner" class="select">Grade:</label>
+                                                <select name="select-owner" id="select-owner" data-native-menu="false">
+                                                    <option>Select Owner</option>
+                                                    <option value="standard">Owner 1</option>
+                                                    <option value="rush">Owner 2</option>
+                                                    <option value="express">Owner 3</option>
+                                                    <option value="overnight">Owner 4</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <label for="select-owner" class="select">Type:</label>
+                                                <select name="select-owner" id="select-owner" data-native-menu="false">
+                                                    <option>Select Owner</option>
+                                                    <option value="standard">Owner 1</option>
+                                                    <option value="rush">Owner 2</option>
+                                                    <option value="express">Owner 3</option>
+                                                    <option value="overnight">Owner 4</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <label for="select-owner" class="select">Other:</label>
+                                                <select name="select-owner" id="select-owner" data-native-menu="false">
+                                                    <option>Select Owner</option>
+                                                    <option value="standard">Owner 1</option>
+                                                    <option value="rush">Owner 2</option>
+                                                    <option value="express">Owner 3</option>
+                                                    <option value="overnight">Owner 4</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <label for="text-basic">Remark</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <label for="text-basic">Other</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <label for="text-basic">CNTRNO</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <label for="text-basic">OWner</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <label for="text-basic">SealNo</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <label for="text-basic">Payload</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                                <label for="text-basic">Age</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <label for="text-basic">Truck No</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <label for="text-basic">Company</label>
+                                                <input type="text" name="text-basic" id="text-basic" value="">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <table class="table table-bordered table-responsive">
+                                                  
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">Danh sách lỗi</th>
+                                                            <td>
+                                                                <label>1-lỗi cong cánh cửa trái</label>
+                                                                <label>2-lỗi cong cánh cửa trên</label>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Phụ phí</th>
+                                                            <td>
+                                                                <label>1-thay dầu cho thùng container</label>
+                                                                <label>2-quét sơn lại thùng container</label>
+                                                            </td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <label for="text-basic">Remark</label>
+                                                <textarea type="text" name="text-basic" id="text-basic" value=""></textarea>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <button style="background: #228e24;color: #fff;text-shadow: none;" class="ui-btn ui-icon-check ui-btn-icon-left">Hoàn thành</button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="ui-tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-live="polite" aria-labelledby="ui-id-3" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--Màn hình chụp ảnh thông tin Count Hạ vỏ:END  -->
+    </div>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+    <script>
+
+        $(document).on("pagecreate", function () {
+            $(".photopopup").on({
+                popupbeforeposition: function () {
+                    var maxHeight = $(window).height() - 60 + "px";
+                    $(".photopopup img").css("max-height", maxHeight);
+                }
+            });
+        });
+    </script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
